@@ -1,0 +1,472 @@
+'use client'
+
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Pagination } from 'swiper/modules'
+import Image from 'next/image'
+import Header from '../components/Header'
+import StickyNote from '../components/StickyNote'
+import Counter from '../components/Counter'
+import PromoBar from '../components/PromoBar'
+import 'swiper/css'
+import 'swiper/css/pagination'
+
+export default function Home() {
+  const { scrollYProgress } = useScroll()
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
+
+  return (
+    <div className="overflow-x-hidden">
+      <PromoBar />
+      <Header />
+
+      {/* Hero Section */}
+      <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center bg-gradient-to-br from-primary to-accent overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-center text-white z-10 max-w-4xl px-4"
+        >
+          <motion.h1
+            className="text-4xl md:text-6xl font-heading mb-6"
+            initial={{ scale: 0.5 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            DP Dental Group
+          </motion.h1>
+          <motion.p
+            className="text-lg md:text-xl mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            Stomatologie modernă fără durere în București de la 2007
+          </motion.p>
+          <motion.a
+            href="#programare"
+            className="inline-block bg-white text-primary px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:bg-gray-100 hover:scale-105"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Programează consultație
+          </motion.a>
+        </motion.div>
+        <motion.video
+          autoPlay
+          muted
+          loop
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          style={{ y }}
+        >
+          <source src="/Beautiful-Smile-And-Perfect-Teeth-In-Dental-Clinic-4K-2025-12-17-21-47-45-Utc.mp4" type="video/mp4" />
+        </motion.video>
+        <motion.div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white text-2xl animate-bounce"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+        >
+          ↓
+        </motion.div>
+      </section>
+
+      {/* Counter Section */}
+      <section className="section bg-white">
+        <div className="container">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <Counter end={2007} label="Anul Înființării" />
+            <Counter end={5000} label="Pacienți Mulțumiți" />
+            <Counter end={15} label="Ani Experiență" />
+            <Counter end={100} label="Fără Durere" />
+          </div>
+        </div>
+      </section>
+
+      {/* Philosophy Section */}
+      <section id="servicii" className="section bg-neutral">
+        <div className="container">
+          <motion.h2
+            className="text-3xl md:text-4xl font-heading text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Filosofia Noastră
+          </motion.h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <motion.div
+              className="bg-white p-8 rounded-2xl shadow-lg"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <Image src="/dental-tools-medical-equipment-2026-01-07-01-00-49-utc.jpg" alt="Tehnologie Modernă" width={400} height={300} className="rounded-lg mb-6 w-full h-48 object-cover" />
+              <h3 className="text-xl font-heading mb-4">Tehnologie Modernă</h3>
+              <p className="text-gray-600">Anestezie atraumatică fără durere, canale radiculare sub microscop cu localizatoare apex, cele mai bune instrumente pentru prevenție.</p>
+            </motion.div>
+            <motion.div
+              className="bg-white p-8 rounded-2xl shadow-lg"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+            >
+              <Image src="/female-dentist-with-assistant-working-in-dental-cl-2026-01-07-07-00-33-utc.jpg" alt="Misiunea Noastră" width={400} height={300} className="rounded-lg mb-6 w-full h-48 object-cover" />
+              <h3 className="text-xl font-heading mb-4">Misiunea Noastră</h3>
+              <p className="text-gray-600">Schimbăm lumea pacienților, învățându-i să nu se teamă de durere, să zâmbească încrezători.</p>
+            </motion.div>
+            <motion.div
+              className="bg-white p-8 rounded-2xl shadow-lg"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+            >
+              <Image src="/a-closeup-shot-of-a-smiling-woman-showing-her-clea-2026-01-11-08-37-43-utc.jpg" alt="Zâmbet Natural" width={400} height={300} className="rounded-lg mb-6 w-full h-48 object-cover" />
+              <h3 className="text-xl font-heading mb-4">Zâmbet = CV</h3>
+              <p className="text-gray-600">Un zâmbet trebuie să fie sănătos, real, natural. Credem în zâmbete care se simt bine.</p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="section bg-white">
+        <div className="container">
+          <motion.h2
+            className="text-3xl md:text-4xl font-heading text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Serviciile Noastre
+          </motion.h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { title: 'Stomatologie Generală', img: '/young-female-dentist-in-dental-office-dentist-at-2026-01-09-06-51-47-utc.jpg', desc: 'Tratamente complete pentru rezultate durabile.' },
+              { title: 'Protetică și Estetică Dentară', img: '/detail-of-a-dental-tools-attached-to-a-dental-chai-2026-01-09-11-06-26-utc.jpg', desc: 'Restaurări estetice de înaltă calitate.' },
+              { title: 'Ortodonție', img: '/woman-holds-aligners-in-dentistry-while-sitting-in-2026-01-08-07-50-11-utc.jpg', desc: 'Alinierea dinților pentru zâmbete perfecte.' },
+              { title: 'Endodonție', img: '/in-a-modern-medical-center-dentistry-checks-the-r-2026-01-05-05-35-48-utc.jpg', desc: 'Tratamente radiculare avansate sub microscop.' },
+              { title: 'Stomatologie Pediatrică', img: '/a-woman-at-an-appointment-with-a-professional-dent-2026-01-05-05-08-43-utc.jpg', desc: 'Îngrijire dentară pentru copii fără frică.' },
+              { title: 'Chirurgie', img: '/with-the-help-of-high-tech-equipment-and-expert-sk-2026-01-05-04-52-49-utc.jpg', desc: 'Proceduri chirurgicale specializate.' },
+            ].map((service, index) => (
+              <motion.div
+                key={service.title}
+                className="bg-gradient-to-br from-primary to-accent text-white p-6 rounded-xl overflow-hidden relative group cursor-pointer"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <Image src={service.img} alt={service.title} width={300} height={200} className="rounded-lg mb-4 w-full h-40 object-cover" />
+                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                <motion.p
+                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  initial={{ y: 20 }}
+                  whileHover={{ y: 0 }}
+                >
+                  {service.desc}
+                </motion.p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="despre" className="section bg-neutral">
+        <div className="container">
+          <motion.h2
+            className="text-3xl md:text-4xl font-heading text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Despre DP Dental Group
+          </motion.h2>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <Image src="/female-dentist-with-assistant-working-in-dental-cl-2026-01-07-07-00-33-utc.jpg" alt="Clinica Noastră" width={600} height={400} className="rounded-2xl shadow-2xl w-full h-80 object-cover" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-heading mb-4">Misiunea Noastră</h3>
+              <p className="text-gray-600 mb-6">
+                DP Dental Group este mai mult decât o clinică dentară. Este locul unde schimbăm lumea pacienților noștri, învățându-i să nu se teamă de durere și să zâmbească încrezători.
+              </p>
+              <h3 className="text-2xl font-heading mb-4">Valori</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li>• Calitate și profesionalism</li>
+                <li>• Tehnologie modernă</li>
+                <li>• Îngrijire personalizată</li>
+                <li>• Mediu fără stres</li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section id="echipa" className="section bg-white">
+        <div className="container">
+          <motion.h2
+            className="text-3xl md:text-4xl font-heading text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Echipa Noastră
+          </motion.h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { name: 'Dr. Ana Maria Popescu', role: 'Stomatolog Principal', img: '/a-sexy-hot-redhead-dentist-woman-taking-care-of-h-2026-01-07-01-18-20-utc.jpg' },
+              { name: 'Dr. Mihai Ionescu', role: 'Specialist Ortodonție', img: '/young-female-dentist-in-dental-office-dentist-at-2026-01-09-06-51-47-utc.jpg' },
+              { name: 'Dr. Elena Dumitrescu', role: 'Stomatolog Pediatric', img: '/female-dentist-with-assistant-working-in-dental-cl-2026-01-07-07-00-33-utc.jpg' },
+            ].map((member, index) => (
+              <motion.div
+                key={index}
+                className="bg-neutral p-6 rounded-2xl shadow-lg text-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                whileHover={{ y: -15 }}
+              >
+                <Image src={member.img} alt={member.name} width={200} height={200} className="rounded-full mx-auto mb-4 border-4 border-primary" />
+                <h3 className="text-xl font-heading mb-2">{member.name}</h3>
+                <p className="text-accent font-semibold">{member.role}</p>
+                <p className="mt-4 text-sm text-gray-600">Certificate internaționale, experiență de peste 10 ani.</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="section bg-neutral">
+        <div className="container">
+          <motion.h2
+            className="text-3xl md:text-4xl font-heading text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Testimoniale
+          </motion.h2>
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            spaceBetween={30}
+            slidesPerView={1}
+            autoplay={{ delay: 5000 }}
+            pagination={{ clickable: true }}
+            breakpoints={{
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="pb-12"
+          >
+            {[
+              { name: 'Oana Ștefania', img: '/a-closeup-shot-of-a-smiling-woman-showing-her-clea-2026-01-11-08-37-43-utc.jpg', text: '"Zâmbetul pe care îl port cu încredere se datorează lor, celor de la DP Dental."' },
+              { name: 'Corina Andrei', img: '/close-up-shot-of-glad-satisfied-woman-being-happy-2026-01-08-05-22-29-utc.jpg', text: '"Cei mai profesioniști oameni cu care am lucrat, cele mai bune rezultate."' },
+              { name: 'Sorin Gheorghe', img: '/exuding-radiance-captivating-close-up-of-a-woman-2026-01-06-11-00-32-utc.jpg', text: '"Estetica dentară ridicată la rang de artă."' },
+              { name: 'Ramo Drăgan', img: '/woman-s-lips-and-teeth-smile-close-up-2026-01-06-10-56-09-utc.jpg', text: '"În sfârșit, pot să zâmbi și sunt fericită!"' },
+            ].map((testimonial, index) => (
+              <SwiperSlide key={index}>
+                <motion.div
+                  className="bg-white p-8 rounded-2xl shadow-lg text-center relative"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -10 }}
+                >
+                  <div className="text-6xl text-accent absolute top-4 left-4 opacity-20">"</div>
+                  <Image src={testimonial.img} alt={testimonial.name} width={80} height={80} className="rounded-full mx-auto mb-4 border-4 border-accent" />
+                  <div className="text-gold text-2xl mb-4">★★★★★</div>
+                  <p className="mb-4 text-lg">{testimonial.text}</p>
+                  <cite className="font-semibold text-accent">-{testimonial.name}</cite>
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
+
+      {/* Booking Section */}
+      <section id="programare" className="section bg-gradient-to-br from-primary to-accent text-white">
+        <div className="container">
+          <motion.h2
+            className="text-3xl md:text-4xl font-heading text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Programează Online
+          </motion.h2>
+          <div className="max-w-2xl mx-auto bg-white bg-opacity-10 p-8 rounded-3xl backdrop-blur-sm">
+            <form className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                >
+                  <label className="block text-sm font-medium mb-2">Nume</label>
+                  <input type="text" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                >
+                  <label className="block text-sm font-medium mb-2">Telefon</label>
+                  <input type="tel" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" />
+                </motion.div>
+              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+              >
+                <label className="block text-sm font-medium mb-2">Email</label>
+                <input type="email" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+              >
+                <label className="block text-sm font-medium mb-2">Serviciu Dorit</label>
+                <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                  <option>Stomatologie Generală</option>
+                  <option>Ortodonție</option>
+                  <option>Protetică</option>
+                  <option>Endodonție</option>
+                  <option>Stomatologie Pediatrică</option>
+                  <option>Chirurgie</option>
+                </select>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 }}
+              >
+                <label className="block text-sm font-medium mb-2">Data Preferată</label>
+                <input type="date" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" />
+              </motion.div>
+              <motion.button
+                type="submit"
+                className="w-full bg-white text-primary py-3 rounded-full font-semibold hover:bg-gray-100 transition-all"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Programează Consultația
+              </motion.button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="section bg-white">
+        <div className="container">
+          <motion.h2
+            className="text-3xl md:text-4xl font-heading text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Contactați-ne
+          </motion.h2>
+          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-heading mb-6">Adresa</h3>
+              <p className="mb-6 text-lg">Str. Alexandru Constantinescu nr. 48, Sector 1, 011472 București</p>
+              <p className="mb-4">Telefon: <a href="tel:0726769991" className="text-primary hover:underline font-semibold">0726 769 991</a></p>
+              <p className="mb-6">Email: <a href="mailto:contact@dpdental.ro" className="text-primary hover:underline font-semibold">contact@dpdental.ro</a></p>
+              <p className="text-lg">Găsim locuri de parcare—doar programați!</p>
+              <div className="mt-8">
+                <h4 className="text-xl font-heading mb-4">Program</h4>
+                <p>Luni - Vineri: 9:00 - 19:00</p>
+                <p>Sâmbătă: 9:00 - 14:00</p>
+                <p>Duminică: Închis</p>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex flex-col justify-center"
+            >
+              <a href="#programare" className="inline-block bg-primary text-white px-8 py-4 rounded-full font-semibold text-center mb-8 hover:bg-opacity-90 transition-all">
+                Programează-te acum
+              </a>
+              <div className="bg-neutral p-6 rounded-2xl">
+                <h4 className="text-xl font-heading mb-4">Newsletter</h4>
+                <p className="mb-4 text-gray-600">Abonează-te pentru sfaturi despre sănătatea dentară și oferte speciale.</p>
+                <input type="email" placeholder="Email-ul tău" className="w-full p-3 rounded-lg mb-4 border border-gray-300" />
+                <button className="w-full bg-primary text-white py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all">
+                  Abonează-te
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-dark text-white py-12">
+        <div className="container">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-xl font-heading mb-4">DP Dental Group</h3>
+              <p className="text-gray-400">Zâmbete naturale, fără durere. De la 2007.</p>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Servicii</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#servicii" className="hover:text-white">Stomatologie Generală</a></li>
+                <li><a href="#servicii" className="hover:text-white">Ortodonție</a></li>
+                <li><a href="#servicii" className="hover:text-white">Protetică</a></li>
+                <li><a href="#servicii" className="hover:text-white">Endodonție</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Contact</h4>
+              <p className="text-gray-400">Str. Alexandru Constantinescu nr. 48</p>
+              <p className="text-gray-400">0726 769 991</p>
+              <p className="text-gray-400">contact@dpdental.ro</p>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Urmărește-ne</h4>
+              <div className="flex space-x-4">
+                <a href="#" className="text-gray-400 hover:text-white">Facebook</a>
+                <a href="#" className="text-gray-400 hover:text-white">Instagram</a>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 DP Dental Group. Toate drepturile rezervate.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
