@@ -20,7 +20,6 @@ export default function Header() {
             <Link href="/" className="flex items-center">
               <img src="/dpentallogo.png" alt="DP Dental Group Logo" className="h-12 w-auto" />
             </Link>
-            <p className="text-xs text-gray-600 mt-1">Zâmbete naturale • din 2007</p>
           </motion.div>
 
           {/* Desktop Navigation */}
