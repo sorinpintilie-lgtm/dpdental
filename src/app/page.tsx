@@ -34,7 +34,7 @@ export default function Home() {
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            DP Dental Group
+            Stomatologie modernă, cu pași clari. În București, din 2007.
           </motion.h1>
           <motion.p
             className="text-lg md:text-xl mb-8 max-w-2xl mx-auto"
@@ -42,7 +42,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Stomatologie modernă fără durere în București de la 2007
+            Consultații, tratamente și estetică dentară într-un mediu calm, cu explicații simple și opțiuni corecte pentru tine.
           </motion.p>
           <motion.a
             href="#programare"
@@ -50,8 +50,44 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Programează consultație
+            Programează consultația
           </motion.a>
+          <motion.a
+            href="#servicii"
+            className="inline-block bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:bg-white hover:text-primary ml-4"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Vezi serviciile
+          </motion.a>
+          <div className="flex justify-center space-x-4 mt-8">
+            <div className="bg-white bg-opacity-20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm">
+              Plan de tratament clar
+            </div>
+            <div className="bg-white bg-opacity-20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm">
+              Tehnologie modernă
+            </div>
+            <div className="bg-white bg-opacity-20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm">
+              Abordare calmă
+            </div>
+          </div>
+          <div className="mt-8 max-w-md mx-auto">
+            <h4 className="text-center text-white font-semibold mb-4">Cum decurge</h4>
+            <div className="space-y-2">
+              <div className="flex items-center text-white text-sm">
+                <span className="bg-white text-primary rounded-full w-6 h-6 flex items-center justify-center mr-3 font-bold">1</span>
+                <span>Consultație și diagnostic</span>
+              </div>
+              <div className="flex items-center text-white text-sm">
+                <span className="bg-white text-primary rounded-full w-6 h-6 flex items-center justify-center mr-3 font-bold">2</span>
+                <span>Plan de tratament personalizat</span>
+              </div>
+              <div className="flex items-center text-white text-sm">
+                <span className="bg-white text-primary rounded-full w-6 h-6 flex items-center justify-center mr-3 font-bold">3</span>
+                <span>Tratament și urmărire</span>
+              </div>
+            </div>
+          </div>
         </motion.div>
         <motion.video
           autoPlay
@@ -79,7 +115,7 @@ export default function Home() {
             <Counter end={2007} label="Anul Înființării" />
             <Counter end={5000} label="Pacienți Mulțumiți" />
             <Counter end={15} label="Ani Experiență" />
-            <Counter end={100} label="Fără Durere" />
+            <Counter end={100} label="Focus pe confort" />
           </div>
         </div>
       </section>
@@ -105,7 +141,7 @@ export default function Home() {
             >
               <Image src="/dental-tools-medical-equipment-2026-01-07-01-00-49-utc.jpg" alt="Tehnologie Modernă" width={400} height={300} className="rounded-lg mb-6 w-full h-48 object-cover" />
               <h3 className="text-xl font-heading mb-4">Tehnologie Modernă</h3>
-              <p className="text-gray-600">Anestezie atraumatică fără durere, canale radiculare sub microscop cu localizatoare apex, cele mai bune instrumente pentru prevenție.</p>
+              <p className="text-gray-600">Lucrăm cu protocoale actuale și instrumente care cresc precizia și confortul: de la prevenție, la endodonție sub magnificație.</p>
             </motion.div>
             <motion.div
               className="bg-white p-8 rounded-2xl shadow-lg"
@@ -116,7 +152,7 @@ export default function Home() {
             >
               <Image src="/female-dentist-with-assistant-working-in-dental-cl-2026-01-07-07-00-33-utc.jpg" alt="Misiunea Noastră" width={400} height={300} className="rounded-lg mb-6 w-full h-48 object-cover" />
               <h3 className="text-xl font-heading mb-4">Misiunea Noastră</h3>
-              <p className="text-gray-600">Schimbăm lumea pacienților, învățându-i să nu se teamă de durere, să zâmbească încrezători.</p>
+              <p className="text-gray-600">Să transformăm vizita la dentist într-o experiență predictibilă: știi ce urmează, de ce, și cât durează.</p>
             </motion.div>
             <motion.div
               className="bg-white p-8 rounded-2xl shadow-lg"
@@ -126,8 +162,8 @@ export default function Home() {
               transition={{ delay: 0.6 }}
             >
               <Image src="/a-closeup-shot-of-a-smiling-woman-showing-her-clea-2026-01-11-08-37-43-utc.jpg" alt="Zâmbet Natural" width={400} height={300} className="rounded-lg mb-6 w-full h-48 object-cover" />
-              <h3 className="text-xl font-heading mb-4">Zâmbet = CV</h3>
-              <p className="text-gray-600">Un zâmbet trebuie să fie sănătos, real, natural. Credem în zâmbete care se simt bine.</p>
+              <h3 className="text-xl font-heading mb-4">Zâmbet Natural</h3>
+              <p className="text-gray-600">Zâmbetul tău, fără artificii. Ne plac rezultatele discrete: sănătos, proporționat, natural — și ușor de întreținut.</p>
             </motion.div>
           </div>
         </div>
@@ -142,16 +178,24 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Serviciile Noastre
+            Servicii
           </motion.h2>
+          <motion.p
+            className="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Acoperim tratamentele esențiale, plus soluții estetice și funcționale pe termen lung.
+          </motion.p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'Stomatologie Generală', img: '/young-female-dentist-in-dental-office-dentist-at-2026-01-09-06-51-47-utc.jpg', desc: 'Tratamente complete pentru rezultate durabile.' },
-              { title: 'Protetică și Estetică Dentară', img: '/detail-of-a-dental-tools-attached-to-a-dental-chai-2026-01-09-11-06-26-utc.jpg', desc: 'Restaurări estetice de înaltă calitate.' },
-              { title: 'Ortodonție', img: '/woman-holds-aligners-in-dentistry-while-sitting-in-2026-01-08-07-50-11-utc.jpg', desc: 'Alinierea dinților pentru zâmbete perfecte.' },
-              { title: 'Endodonție', img: '/in-a-modern-medical-center-dentistry-checks-the-r-2026-01-05-05-35-48-utc.jpg', desc: 'Tratamente radiculare avansate sub microscop.' },
-              { title: 'Stomatologie Pediatrică', img: '/a-woman-at-an-appointment-with-a-professional-dent-2026-01-05-05-08-43-utc.jpg', desc: 'Îngrijire dentară pentru copii fără frică.' },
-              { title: 'Chirurgie', img: '/with-the-help-of-high-tech-equipment-and-expert-sk-2026-01-05-04-52-49-utc.jpg', desc: 'Proceduri chirurgicale specializate.' },
+              { title: 'Stomatologie generală', img: '/young-female-dentist-in-dental-office-dentist-at-2026-01-09-06-51-47-utc.jpg', desc: 'Consultații, obturații, plan de tratament pe înțeles.', include: ['Consultație inițială', 'Obturații și tratamente conservatoare', 'Plan de tratament personalizat'], pentru: 'Pentru toți pacienții care doresc să își mențină sănătatea dentară.' },
+              { title: 'Protetică & estetică dentară', img: '/detail-of-a-dental-tools-attached-to-a-dental-chai-2026-01-09-11-06-26-utc.jpg', desc: 'Restaurări care arată natural și se simt corect.', include: ['Coronițe și poduri', 'Fațete dentare', 'Restaurări estetice'], pentru: 'Pentru pacienții care doresc să își îmbunătățească aspectul și funcționalitatea dinților.' },
+              { title: 'Ortodonție', img: '/woman-holds-aligners-in-dentistry-while-sitting-in-2026-01-08-07-50-11-utc.jpg', desc: 'Aliniere și ghidaj, cu obiective realiste și monitorizare.', include: ['Aparate dentare fixe și mobile', 'Aliniere cu ajutorul tehnologiei moderne', 'Monitorizare constantă'], pentru: 'Pentru copii și adulți care doresc să își corecteze poziția dinților.' },
+              { title: 'Endodonție', img: '/in-a-modern-medical-center-dentistry-checks-the-r-2026-01-05-05-35-48-utc.jpg', desc: 'Tratamente de canal cu accent pe precizie și control.', include: ['Tratamente de canal sub microscop', 'Utilizarea tehnologiei moderne pentru precizie', 'Controlul durerii și confortul pacientului'], pentru: 'Pentru pacienții care au nevoie de tratamente de canal.' },
+              { title: 'Stomatologie pediatrică', img: '/a-woman-at-an-appointment-with-a-professional-dent-2026-01-05-05-08-43-utc.jpg', desc: 'Abordare blândă, adaptată copiilor și părinților.', include: ['Consultații și tratamente pentru copii', 'Educare pentru igiena dentară', 'Abordare prietenoasă și fără stres'], pentru: 'Pentru copii și părinții care doresc să își mențină sănătatea dentară.' },
+              { title: 'Chirurgie', img: '/with-the-help-of-high-tech-equipment-and-expert-sk-2026-01-05-04-52-49-utc.jpg', desc: 'Intervenții planificate, explicații clare, recuperare ghidată.', include: ['Extracții dentare', 'Intervenții chirurgicale planificate', 'Recuperare ghidată și monitorizare'], pentru: 'Pentru pacienții care au nevoie de intervenții chirurgicale.' },
             ].map((service, index) => (
               <motion.div
                 key={service.title}
@@ -171,6 +215,26 @@ export default function Home() {
                 >
                   {service.desc}
                 </motion.p>
+                <div className="mt-4 space-y-2 text-sm">
+                  <p className="font-semibold">Ce include:</p>
+                  <ul className="list-disc list-inside">
+                    {service.include.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-4 text-sm">
+                  <p className="font-semibold">Pentru cine e potrivit:</p>
+                  <p>{service.pentru}</p>
+                </div>
+                <motion.a
+                  href="#programare"
+                  className="inline-block bg-white text-primary px-4 py-2 rounded-full font-semibold text-sm mt-4 hover:bg-gray-100 transition-all"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Programează evaluare
+                </motion.a>
               </motion.div>
             ))}
           </div>
@@ -230,9 +294,9 @@ export default function Home() {
           </motion.h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { name: 'Dr. Ana Maria Popescu', role: 'Stomatolog Principal', img: '/a-sexy-hot-redhead-dentist-woman-taking-care-of-h-2026-01-07-01-18-20-utc.jpg' },
-              { name: 'Dr. Mihai Ionescu', role: 'Specialist Ortodonție', img: '/young-female-dentist-in-dental-office-dentist-at-2026-01-09-06-51-47-utc.jpg' },
-              { name: 'Dr. Elena Dumitrescu', role: 'Stomatolog Pediatric', img: '/female-dentist-with-assistant-working-in-dental-cl-2026-01-07-07-00-33-utc.jpg' },
+              { name: 'Dr. Ana Maria Popescu', role: 'Medic stomatolog', img: '/a-sexy-hot-redhead-dentist-woman-taking-care-of-h-2026-01-07-01-18-20-utc.jpg', desc: 'Experiență clinică solidă, focus pe planuri de tratament clare și rezultate durabile.' },
+              { name: 'Dr. Mihai Ionescu', role: 'Medic specialist ortodonție', img: '/young-female-dentist-in-dental-office-dentist-at-2026-01-09-06-51-47-utc.jpg', desc: 'Planificare atentă, monitorizare constantă, aliniere cu obiective realiste.' },
+              { name: 'Dr. Elena Dumitrescu', role: 'Medic stomatolog pediatru', img: '/female-dentist-with-assistant-working-in-dental-cl-2026-01-07-07-00-33-utc.jpg', desc: 'Abordare blândă, comunicare pe înțelesul copiilor și al părinților.' },
             ].map((member, index) => (
               <motion.div
                 key={index}
