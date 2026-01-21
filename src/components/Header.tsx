@@ -17,10 +17,10 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Link href="/" className="text-2xl font-heading font-bold text-primary">
-              DP DENTAL GROUP
+            <Link href="/" className="flex items-center">
+              <img src="/dpentallogo.png" alt="DP Dental Group Logo" className="h-12 w-auto" />
             </Link>
-            <p className="text-xs text-gray-600 mt-1">Zâmbete naturale de la 2007</p>
+            <p className="text-xs text-gray-600 mt-1">Zâmbete naturale • din 2007</p>
           </motion.div>
 
           {/* Desktop Navigation */}
