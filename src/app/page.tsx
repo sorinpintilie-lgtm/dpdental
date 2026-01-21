@@ -22,19 +22,39 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center bg-gradient-to-br from-primary to-accent overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent_50%)] opacity-60"></div>
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)`,
+          backgroundSize: '20px 20px'
+        }}></div>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center text-white z-10 max-w-5xl px-4"
         >
+          <motion.div
+            className="text-center mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
+          >
+            <span className="inline-block px-4 py-2 bg-white bg-opacity-20 backdrop-blur-sm text-white text-sm font-medium uppercase tracking-wider rounded-full border border-white border-opacity-30">
+              Clinică Dentară Premium
+            </span>
+          </motion.div>
           <motion.h1
             className="text-4xl md:text-7xl font-heading mb-8 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
           >
-            Stomatologie modernă, cu pași clari. În București, din 2007.
+            Stomatologie <span className="relative inline-block">
+              modernă
+              <svg className="absolute -bottom-2 left-0 w-full h-1 text-white opacity-60" viewBox="0 0 100 4" preserveAspectRatio="none">
+                <path d="M0,2 Q50,0 100,2" stroke="currentColor" strokeWidth="2" fill="none"/>
+              </svg>
+            </span>, cu pași clari. În București, din 2007.
           </motion.h1>
           <motion.p
             className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed"
@@ -138,25 +158,39 @@ export default function Home() {
       </section>
 
       {/* Philosophy Section */}
-      <section id="servicii" className="section bg-neutral">
+      <section id="servicii" className="section bg-neutral relative">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
         <div className="container">
-          <motion.h2
-            className="text-3xl md:text-4xl font-heading text-center mb-16"
-            initial={{ opacity: 0, y: 50 }}
+          <motion.div
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <span className="inline-block px-4 py-2 bg-primary text-white text-sm font-medium uppercase tracking-wider rounded-full">
+              Ce ne definește
+            </span>
+          </motion.div>
+          <motion.h2
+            className="text-3xl md:text-4xl font-heading text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
           >
             Filosofia Noastră
           </motion.h2>
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div
-              className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300"
+              className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
               whileHover={{ y: -5 }}
             >
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
@@ -166,13 +200,14 @@ export default function Home() {
               <p className="text-gray-600 leading-relaxed">Lucrăm cu protocoale actuale și instrumente care cresc precizia și confortul: de la prevenție, la endodonție sub magnificație.</p>
             </motion.div>
             <motion.div
-              className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300"
+              className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
               whileHover={{ y: -5 }}
             >
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -182,13 +217,14 @@ export default function Home() {
               <p className="text-gray-600 leading-relaxed">Să transformăm vizita la dentist într-o experiență predictibilă: știi ce urmează, de ce, și cât durează.</p>
             </motion.div>
             <motion.div
-              className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300"
+              className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6, duration: 0.6, ease: "easeOut" }}
               whileHover={{ y: -5 }}
             >
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.586a1 1 0 01.707.293l.707.707A1 1 0 0012.414 11H13m-3 3h3m-8-8h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
@@ -202,21 +238,35 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="section bg-white">
+      <section className="section bg-white relative">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
         <div className="container">
-          <motion.h2
-            className="text-3xl md:text-4xl font-heading text-center mb-16"
-            initial={{ opacity: 0, y: 50 }}
+          <motion.div
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <span className="inline-block px-4 py-2 bg-accent text-white text-sm font-medium uppercase tracking-wider rounded-full">
+              Tratament complet
+            </span>
+          </motion.div>
+          <motion.h2
+            className="text-3xl md:text-4xl font-heading text-center mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
           >
             Servicii
           </motion.h2>
           <motion.p
-            className="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 50 }}
+            className="text-center text-lg text-gray-600 mb-16 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
           >
             Acoperim tratamentele esențiale, plus soluții estetice și funcționale pe termen lung.
           </motion.p>
@@ -271,17 +321,41 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+          <motion.div
+            className="mt-16 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
+          >
+            <div className="inline-block bg-gradient-to-r from-primary to-accent text-white px-8 py-4 rounded-2xl shadow-lg">
+              <p className="text-sm font-medium">Evaluare completă + plan de tratament personalizat</p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="despre" className="section bg-neutral">
+      <section id="despre" className="section bg-neutral relative">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
         <div className="container">
-          <motion.h2
-            className="text-3xl md:text-4xl font-heading text-center mb-16"
-            initial={{ opacity: 0, y: 50 }}
+          <motion.div
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <span className="inline-block px-4 py-2 bg-accent text-white text-sm font-medium uppercase tracking-wider rounded-full">
+              Povestea noastră
+            </span>
+          </motion.div>
+          <motion.h2
+            className="text-3xl md:text-4xl font-heading text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
           >
             Despre DP Dental Group
           </motion.h2>
@@ -315,13 +389,26 @@ export default function Home() {
       </section>
 
       {/* Team Section */}
-      <section id="echipa" className="section bg-white">
+      <section id="echipa" className="section bg-white relative">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
         <div className="container">
-          <motion.h2
-            className="text-3xl md:text-4xl font-heading text-center mb-16"
-            initial={{ opacity: 0, y: 50 }}
+          <motion.div
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <span className="inline-block px-4 py-2 bg-primary text-white text-sm font-medium uppercase tracking-wider rounded-full">
+              Experiență & profesionalism
+            </span>
+          </motion.div>
+          <motion.h2
+            className="text-3xl md:text-4xl font-heading text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
           >
             Echipa Noastră
           </motion.h2>
@@ -359,18 +446,38 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="section bg-neutral">
+      <section className="section bg-neutral relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
+        <div className="absolute top-20 right-10 text-9xl text-gray-200 opacity-10 font-serif leading-none">"</div>
+        <div className="absolute bottom-20 left-10 text-9xl text-gray-200 opacity-10 font-serif leading-none rotate-180">"</div>
         <div className="container">
-          <motion.h2
-            className="text-3xl md:text-4xl font-heading text-center mb-16"
+          <motion.div
+            className="text-center mb-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
+            <span className="inline-block px-4 py-2 bg-accent text-white text-sm font-medium uppercase tracking-wider rounded-full">
+              Păreri autentice
+            </span>
+          </motion.div>
+          <motion.h2
+            className="text-3xl md:text-4xl font-heading text-center mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+          >
             Recenzii
           </motion.h2>
-          <div className="text-center mb-8">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
+          >
             <div className="inline-flex items-center space-x-2 bg-white px-6 py-3 rounded-full shadow-sm border border-gray-100">
               <div className="flex text-yellow-400">
                 ★★★★★
@@ -378,7 +485,7 @@ export default function Home() {
               <span className="text-gray-600 font-semibold">4.9/5</span>
               <span className="text-gray-500">din 150+ recenzii</span>
             </div>
-          </div>
+          </motion.div>
           <Swiper
             modules={[Autoplay, Pagination]}
             spaceBetween={30}
@@ -419,16 +526,38 @@ export default function Home() {
       </section>
 
       {/* Booking Section */}
-      <section id="programare" className="section bg-gradient-to-br from-primary to-accent text-white">
-        <div className="container">
-          <motion.h2
-            className="text-3xl md:text-4xl font-heading text-center mb-16"
-            initial={{ opacity: 0, y: 50 }}
+      <section id="programare" className="section bg-gradient-to-br from-primary to-accent text-white relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.1),transparent_50%)] opacity-60"></div>
+        <div className="container relative z-10">
+          <motion.div
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            Programează Online
+            <span className="inline-block px-4 py-2 bg-white bg-opacity-20 backdrop-blur-sm text-white text-sm font-medium uppercase tracking-wider rounded-full border border-white border-opacity-30">
+              Simplu și rapid
+            </span>
+          </motion.div>
+          <motion.h2
+            className="text-3xl md:text-4xl font-heading text-center mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+          >
+            Programare online
           </motion.h2>
+          <motion.p
+            className="text-center text-lg text-white mb-12 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
+          >
+            Trimite detaliile, iar noi confirmăm telefonic.
+          </motion.p>
           <div className="max-w-2xl mx-auto bg-white bg-opacity-10 p-8 rounded-3xl backdrop-blur-sm">
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
@@ -497,15 +626,28 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="section bg-white">
+      <section id="contact" className="section bg-white relative">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
         <div className="container">
-          <motion.h2
-            className="text-3xl md:text-4xl font-heading text-center mb-16"
-            initial={{ opacity: 0, y: 50 }}
+          <motion.div
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            Contactați-ne
+            <span className="inline-block px-4 py-2 bg-primary text-white text-sm font-medium uppercase tracking-wider rounded-full">
+              Suntem aici pentru tine
+            </span>
+          </motion.div>
+          <motion.h2
+            className="text-3xl md:text-4xl font-heading text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+          >
+            Contact
           </motion.h2>
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             <motion.div
@@ -515,8 +657,8 @@ export default function Home() {
             >
               <h3 className="text-2xl font-heading mb-6">Adresa</h3>
               <p className="mb-6 text-lg">Str. Alexandru Constantinescu nr. 48, Sector 1, 011472 București</p>
-              <p className="mb-4">Telefon: <a href="tel:0726769991" className="text-primary hover:underline font-semibold">0726 769 991</a></p>
-              <p className="mb-6">Email: <a href="mailto:contact@dpdental.ro" className="text-primary hover:underline font-semibold">contact@dpdental.ro</a></p>
+              <p className="mb-4">Telefon: <a href="tel:0726769991" className="text-primary hover:text-accent font-semibold transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent hover:after:w-full after:transition-all after:duration-300">0726 769 991</a></p>
+              <p className="mb-6">Email: <a href="mailto:contact@dpdental.ro" className="text-primary hover:text-accent font-semibold transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent hover:after:w-full after:transition-all after:duration-300">contact@dpdental.ro</a></p>
               <p className="text-lg">Găsim locuri de parcare—doar programați!</p>
               <div className="mt-8">
                 <h4 className="text-xl font-heading mb-4">Program</h4>
@@ -558,10 +700,10 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Servicii</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#servicii" className="hover:text-white">Stomatologie Generală</a></li>
-                <li><a href="#servicii" className="hover:text-white">Ortodonție</a></li>
-                <li><a href="#servicii" className="hover:text-white">Protetică</a></li>
-                <li><a href="#servicii" className="hover:text-white">Endodonție</a></li>
+                <li><a href="#servicii" className="hover:text-white transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300">Stomatologie generală</a></li>
+                <li><a href="#servicii" className="hover:text-white transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300">Ortodonție</a></li>
+                <li><a href="#servicii" className="hover:text-white transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300">Protetică</a></li>
+                <li><a href="#servicii" className="hover:text-white transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300">Endodonție</a></li>
               </ul>
             </div>
             <div>
@@ -573,8 +715,8 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Urmărește-ne</h4>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white">Facebook</a>
-                <a href="#" className="text-gray-400 hover:text-white">Instagram</a>
+                <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300">Facebook</a>
+                <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300">Instagram</a>
               </div>
             </div>
           </div>
